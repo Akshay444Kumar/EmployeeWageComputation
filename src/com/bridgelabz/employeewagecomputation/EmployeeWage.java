@@ -9,6 +9,7 @@ public class EmployeeWage {
     final int PART_TIME_HOURS = 4;
     final int MAX_WORK_HOURS = 100;
     final int MAX_WORK_DAYS = 20;
+
     public static void main(String[] args) {
         EmployeeWage employeeWage = new EmployeeWage();
         employeeWage.calculateEmployeeWage();
