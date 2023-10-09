@@ -6,24 +6,31 @@ public class EmployeeWage {
         int WAGE_PER_HOUR = 20;
         int FULL_DAY_HOURS = 8;
         int PART_TIME_HOURS = 4;
-        int WORK_DAYS_PER_MONTH = 20;
-        int dailyWage = 0;
+        int MAX_WORK_HOURS = 100;
+        int MAX_WORK_DAYS = 20;
+        int totalWorkHours = 0;
+        int totalWorkDays = 0;
+        int totalDailyWage = 0;
 
-        for (int day = 1; day <= WORK_DAYS_PER_MONTH; day++) {
+        while (totalWorkHours <= MAX_WORK_HOURS && totalWorkDays < MAX_WORK_DAYS) {
+            totalWorkDays++;
             int check = (int) Math.floor(Math.random() * 10 % 3);
             switch (check) {
                 case 1:
-                    dailyWage = dailyWage + FULL_DAY_HOURS * WAGE_PER_HOUR;
-                    System.out.println("Employee is Present Full-time: " +dailyWage);
+                    totalWorkHours = totalWorkHours + FULL_DAY_HOURS;
+                    totalDailyWage = totalDailyWage + FULL_DAY_HOURS * WAGE_PER_HOUR;
+                    System.out.println("Employee is Present Full-time: " +totalDailyWage);
                     break;
                 case 2:
-                    dailyWage = dailyWage + PART_TIME_HOURS * WAGE_PER_HOUR;
-                    System.out.println("Employee is Present Part-time: " +dailyWage);
+                    totalWorkHours = totalWorkHours + PART_TIME_HOURS;
+                    totalDailyWage = totalDailyWage + PART_TIME_HOURS * WAGE_PER_HOUR;
+                    System.out.println("Employee is Present Part-time: " +totalDailyWage);
                     break;
                 default:
-                    System.out.println("Employee is Absent.");
+                    System.out.println("Employee is Absent: " +totalDailyWage);
             }
+            System.out.println("Working Days: " +totalWorkDays + " Total Work Hours: " +totalWorkHours);
         }
-        System.out.println("The total Monthly Wage of the Employee is: " +dailyWage);
+        System.out.println("The total Monthly Wage of the Employee is: " +totalDailyWage);
     }
 }
